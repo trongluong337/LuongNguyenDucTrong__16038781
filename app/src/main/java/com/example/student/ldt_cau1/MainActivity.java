@@ -1,5 +1,7 @@
 package com.example.student.ldt_cau1;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -13,13 +15,14 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     EditText tk, mk;
     CheckBox cb;
-    Button dn;
+    Button dn, thoat;
 
     public void anhXa(){
         tk = findViewById(R.id.edtTK);
         mk = findViewById(R.id.edtPass);
         cb = findViewById(R.id.checkbox1);
         dn = findViewById(R.id.btnDN);
+        thoat = findViewById(R.id.btnThoat);
 
 
     }
@@ -42,6 +45,34 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+                thoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+
+                builder.setTitle("Xác nhận!");
+                builder.setMessage("Bạn có muốn thoát không!");
+
+                builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+                        finish();
+                    }
+                });
+
+                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog , int i) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+            }
+        });
+
 
 
     }
