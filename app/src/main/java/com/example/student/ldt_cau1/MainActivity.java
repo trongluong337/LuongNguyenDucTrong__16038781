@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-
-                builder.setTitle("Xác nhận!");
+                builder.setIcon(R.mipmap.ic_launcher);
+                builder.setTitle("Thông báo!");
                 builder.setMessage("Bạn có muốn thoát không!");
 
                 builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
